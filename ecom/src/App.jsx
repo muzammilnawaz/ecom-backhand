@@ -8,7 +8,7 @@ function App() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:5002/products');
+      const res = await axios.get('https://ecom-backhand.vercel.app/products');
       setProducts(res.data.product_list);
     } catch (err) {
       console.error(err);
@@ -21,7 +21,7 @@ function App() {
       return;
     }
     try {
-      await axios.post('http://localhost:5002/product', form);
+      await axios.post('https://ecom-backhand.vercel.app/product', form);
       setForm({ name: '', description: '', price: '' });
       setError('');
       fetchProducts();
@@ -33,7 +33,7 @@ function App() {
 
   const deleteProduct = async (id) => {
     try {
-      await axios.delete(`http://localhost:5002/product/${id}`);
+      await axios.delete(`https://ecom-backhand.vercel.app/product/${id}`);
       fetchProducts();
     } catch (err) {
       console.error(err);
